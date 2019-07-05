@@ -47,10 +47,11 @@ def calculateGC(ntSeq):
 def ntSeqInGCrange(aaSeq, gcRange):
 	#aaSeq = amino acid sequence
 	#gcRange = gc range (eg. 40-60)
+	
 	ntSeq =''
 	tempGC =0.0
 	ranges = gcRange.split("-")
-
+	#find the new nucleotide sequence until the specified gc range is reached
 	while not (tempGC *100 >= float(ranges[0]) and tempGC*100 <= float(ranges[1])):
 		ntSeq = backTranslateSeq(aaSeq)
 		tempGC = calculateGC(ntSeq)

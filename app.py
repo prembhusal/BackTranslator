@@ -36,9 +36,9 @@ def addrecord():
 
                #insert amino acid sequence and  nucleotide sequence into outputSequence table 
                cur.execute("CREATE TABLE IF NOT EXISTS outputSequence (aaseq TEXT PRIMARY KEY NOT NULL, ntseq TEXT NOT NULL)")
-               print "error here"
+               
                cur.execute("INSERT INTO outputSequence (aaseq,ntseq) VALUES (?,?)", (seq,ntSeq))
-               print "error here also"
+               
                con.commit()
                msg = " Nucleotide Sequence : "+ntSeq+", GC content: " +str(gc)
             else:
@@ -66,4 +66,4 @@ def list():
    return render_template("list.html",rows = rows)
 
 if __name__ == '__main__':
-   app.run(debug = True)
+   app.run(debug = True,host='0.0.0.0')
